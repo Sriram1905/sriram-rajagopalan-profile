@@ -1,6 +1,10 @@
+import { Github, Linkedin, Mail } from "lucide-react";
 import Button from "@/components/Button";
 import CareerRoad from "@/components/CareerRoad";
 import SiteHeader from "@/components/SiteHeader";
+
+const SOCIAL_ICON_CLASSES =
+  "text-text-muted hover:text-accent-green focus-visible:text-accent-green focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-green";
 
 function SectionOpener({
   command,
@@ -25,7 +29,7 @@ function SectionOpener({
 export default function Home() {
   return (
     <>
-      <SiteHeader pageName="PORTFOLIO" meta="v1.0 · 2026" />
+      <SiteHeader pageName="PORTFOLIO" hideNav />
       <main className="py-16">
         <p className="font-mono text-[11px] text-accent-green">{"> whoami"}</p>
         <h1 className="mt-4 font-serif text-[32px] font-medium sm:text-[44px]">
@@ -45,14 +49,31 @@ export default function Home() {
           <Button variant="primary" href="/resume">
             RESUME ↓
           </Button>
-          <Button
-            variant="tertiary"
+        </div>
+        <div className="mt-6 flex items-center gap-4">
+          <a
             href="https://www.linkedin.com/in/sriram-rajagopalan/"
-            external
-            ariaLabel="Sriram Rajagopalan on LinkedIn"
+            rel="noopener"
+            aria-label="Sriram Rajagopalan on LinkedIn"
+            className={SOCIAL_ICON_CLASSES}
           >
-            LINKEDIN
-          </Button>
+            <Linkedin size={18} />
+          </a>
+          <a
+            href="https://github.com/Sriram1905"
+            rel="noopener"
+            aria-label="Sriram Rajagopalan on GitHub"
+            className={SOCIAL_ICON_CLASSES}
+          >
+            <Github size={18} />
+          </a>
+          <a
+            href="mailto:sriraraj19@gmail.com"
+            aria-label="Email Sriram Rajagopalan"
+            className={SOCIAL_ICON_CLASSES}
+          >
+            <Mail size={18} />
+          </a>
         </div>
 
         <section className="mt-12">
@@ -121,22 +142,6 @@ export default function Home() {
               </Button>
               <Button variant="primary" href="/resume">
                 RESUME ↓
-              </Button>
-              <Button
-                variant="secondary"
-                href="https://github.com/Sriram1905"
-                external
-                ariaLabel="Sriram Rajagopalan on GitHub"
-              >
-                GITHUB
-              </Button>
-              <Button
-                variant="tertiary"
-                href="mailto:sriraraj19@gmail.com"
-                external
-                ariaLabel="Email Sriram Rajagopalan"
-              >
-                EMAIL ↗
               </Button>
             </div>
           </div>

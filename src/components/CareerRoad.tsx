@@ -19,19 +19,21 @@ type Milestone = {
   years: string;
   company: string;
   role: string;
+  location: string;
   current?: boolean;
 };
 
 const MILESTONES: Milestone[] = [
-  { years: "Jun 2013 – Jan 2016", company: "Capgemini", role: "Data Engineer" },
-  { years: "Jan 2016 – Jul 2016", company: "Perficient", role: "Data Engineer" },
-  { years: "Aug 2016 – Dec 2017", company: "UConn", role: "MS Business Analytics" },
-  { years: "May 2017 – Sep 2019", company: "IBM", role: "Data Analyst" },
-  { years: "Sep 2019 – Jan 2024", company: "Amazon", role: "Sr. BI Engineer" },
+  { years: "Jun 2013 – Jan 2016", company: "Capgemini", role: "Data Engineer", location: "Bangalore, India" },
+  { years: "Jan 2016 – Jul 2016", company: "Perficient", role: "Data Engineer", location: "Chennai, India" },
+  { years: "Aug 2016 – Dec 2017", company: "UConn", role: "MS Business Analytics", location: "Connecticut, US" },
+  { years: "May 2017 – Sep 2019", company: "IBM", role: "Data Analyst", location: "New York, US" },
+  { years: "Sep 2019 – Jan 2024", company: "Amazon", role: "Sr. BI Engineer", location: "Seattle, US" },
   {
     years: "Jan 2024 – Present",
     company: "Amazon",
     role: "Data Science Manager",
+    location: "Seattle, US",
     current: true,
   },
 ];
@@ -49,11 +51,11 @@ const DESKTOP_POINTS = [
 
 const MOBILE_POINTS = [
   { x: 100, y: 60 },
-  { x: 235, y: 180 },
-  { x: 100, y: 300 },
-  { x: 235, y: 420 },
-  { x: 100, y: 540 },
-  { x: 167, y: 660 },
+  { x: 235, y: 200 },
+  { x: 100, y: 340 },
+  { x: 235, y: 480 },
+  { x: 100, y: 620 },
+  { x: 167, y: 760 },
 ];
 
 // Smooth S-curves: horizontal tangents at each stop (desktop) or vertical
@@ -81,7 +83,7 @@ function mobilePath() {
     d += ` C ${prev.x} ${my}, ${p.x} ${my}, ${p.x} ${p.y}`;
     prev = p;
   }
-  d += ` C ${prev.x} 710, ${prev.x} 730, ${prev.x} 780`;
+  d += ` C ${prev.x} 800, ${prev.x} 820, ${prev.x} 870`;
   return d;
 }
 
@@ -151,6 +153,9 @@ function Stop({
       <p className="font-mono text-[10px] text-text-muted">
         {milestone.company}
       </p>
+      <p className="font-mono text-[9px] text-text-dim">
+        {milestone.location}
+      </p>
     </div>
   );
 }
@@ -189,11 +194,11 @@ export default function CareerRoad() {
       </div>
 
       {/* Mobile: vertical winding road */}
-      <div className="relative h-[760px] md:hidden">
+      <div className="relative h-[830px] md:hidden">
         <svg
           aria-hidden="true"
           className="absolute inset-0 h-full w-full"
-          viewBox="0 0 375 760"
+          viewBox="0 0 375 830"
           preserveAspectRatio="none"
           fill="none"
         >
