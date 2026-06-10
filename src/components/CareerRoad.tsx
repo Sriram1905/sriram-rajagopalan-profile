@@ -1,27 +1,39 @@
-import { existsSync } from "node:fs";
-import path from "node:path";
-import Image from "next/image";
-import { BASE_PATH } from "@/lib/site";
+import * as simpleIcons from "simple-icons";
 
-// TODO: drop official logo SVGs into public/logos/ — expected files:
-//   capgemini.svg, perficient.svg, uconn.svg, ibm.svg, amazon.svg
-// Until a file exists, that stop renders a serif monogram badge instead.
+type SimpleIcon = { path: string; title: string };
+
+// Brand icons from simple-icons (v11 — newer majors dropped these brands).
+// Any company without an icon here renders a full-name pill badge instead;
+// never single-letter monograms. Capgemini has no simple-icons entry, and
+// Perficient/UConn are intentionally pill-only per design.
+const ICONS: Record<string, SimpleIcon | undefined> = {
+  Amazon: (simpleIcons as Record<string, unknown>).siAmazon as
+    | SimpleIcon
+    | undefined,
+  IBM: (simpleIcons as Record<string, unknown>).siIbm as
+    | SimpleIcon
+    | undefined,
+};
 
 type Milestone = {
-  year: string;
+  years: string;
   company: string;
   role: string;
-  logo: string;
   current?: boolean;
 };
 
 const MILESTONES: Milestone[] = [
-  { year: "2013", company: "Capgemini", role: "Data Engineer", logo: "capgemini.svg" },
-  { year: "2016", company: "Perficient", role: "Data Engineer", logo: "perficient.svg" },
-  { year: "2016", company: "UConn", role: "MS Business Analytics", logo: "uconn.svg" },
-  { year: "2017", company: "IBM", role: "Data Analyst", logo: "ibm.svg" },
-  { year: "2019", company: "Amazon", role: "Sr. BI Engineer", logo: "amazon.svg" },
-  { year: "2024", company: "Amazon", role: "Data Science Manager", logo: "amazon.svg", current: true },
+  { years: "Jun 2013 – Jan 2016", company: "Capgemini", role: "Data Engineer" },
+  { years: "Jan 2016 – Jul 2016", company: "Perficient", role: "Data Engineer" },
+  { years: "Aug 2016 – Dec 2017", company: "UConn", role: "MS Business Analytics" },
+  { years: "May 2017 – Sep 2019", company: "IBM", role: "Data Analyst" },
+  { years: "Sep 2019 – Jan 2024", company: "Amazon", role: "Sr. BI Engineer" },
+  {
+    years: "Jan 2024 – Present",
+    company: "Amazon",
+    role: "Data Science Manager",
+    current: true,
+  },
 ];
 
 // Badge-center coordinates the road passes through. Desktop viewBox is
@@ -74,29 +86,34 @@ function mobilePath() {
 }
 
 function Badge({ milestone }: { milestone: Milestone }) {
-  const hasLogo = existsSync(
-    path.join(process.cwd(), "public/logos", milestone.logo),
-  );
+  const icon = ICONS[milestone.company];
+  const borderClasses = milestone.current
+    ? "border border-accent-orange"
+    : "border-[0.5px] border-border-emphasis";
+
+  if (icon) {
+    return (
+      <div
+        className={`mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-bg-secondary ${borderClasses}`}
+      >
+        <svg
+          aria-hidden="true"
+          viewBox="0 0 24 24"
+          width="22"
+          height="22"
+          fill="#F5F1EA"
+        >
+          <path d={icon.path} />
+        </svg>
+      </div>
+    );
+  }
+
   return (
     <div
-      className={`mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-bg-secondary ${
-        milestone.current
-          ? "border border-accent-orange"
-          : "border-[0.5px] border-border-emphasis"
-      }`}
+      className={`mx-auto w-fit whitespace-nowrap rounded-full bg-bg-secondary px-[12px] py-[6px] font-mono text-[10px] text-text-primary ${borderClasses}`}
     >
-      {hasLogo ? (
-        <Image
-          src={`${BASE_PATH}/logos/${milestone.logo}`}
-          alt={`${milestone.company} logo`}
-          width={22}
-          height={22}
-        />
-      ) : (
-        <span aria-hidden="true" className="font-serif text-[15px] text-cream">
-          {milestone.company[0]}
-        </span>
-      )}
+      {milestone.company}
     </div>
   );
 }
@@ -110,13 +127,18 @@ function Stop({
   left: string;
   top: number;
 }) {
+  // Offset so the badge's vertical center sits on the road point:
+  // year line (~15px) + 4px gap + half the badge (20px circle, ~13px pill).
+  const isPill = !ICONS[milestone.company];
+  const offset = isPill ? 32 : 39;
+
   return (
     <div
       className="absolute w-36 -translate-x-1/2 text-center"
-      style={{ left, top: top - 39 }}
+      style={{ left, top: top - offset }}
     >
-      <p className="mb-1 font-mono text-[10px] text-text-dim">
-        {milestone.year}
+      <p className="mb-1 whitespace-nowrap font-mono text-[10px] text-text-dim">
+        {milestone.years}
       </p>
       <Badge milestone={milestone} />
       <p
@@ -155,7 +177,7 @@ export default function CareerRoad() {
         </svg>
         <ol>
           {MILESTONES.map((m, i) => (
-            <li key={`${m.year}-${m.role}`}>
+            <li key={`${m.years}-${m.role}`}>
               <Stop
                 milestone={m}
                 left={`${DESKTOP_POINTS[i].x / 10}%`}
@@ -185,7 +207,7 @@ export default function CareerRoad() {
         </svg>
         <ol>
           {MILESTONES.map((m, i) => (
-            <li key={`${m.year}-${m.role}`}>
+            <li key={`${m.years}-${m.role}`}>
               <Stop
                 milestone={m}
                 left={`${(MOBILE_POINTS[i].x / 375) * 100}%`}

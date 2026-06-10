@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Button from "@/components/Button";
 import CareerRoad from "@/components/CareerRoad";
 import SiteHeader from "@/components/SiteHeader";
@@ -46,8 +45,13 @@ export default function Home() {
           <Button variant="primary" href="/resume">
             RESUME ↓
           </Button>
-          <Button variant="tertiary" href="/about">
-            ABOUT
+          <Button
+            variant="tertiary"
+            href="https://www.linkedin.com/in/sriram-rajagopalan/"
+            external
+            ariaLabel="Sriram Rajagopalan on LinkedIn"
+          >
+            LINKEDIN
           </Button>
         </div>
 
@@ -55,29 +59,36 @@ export default function Home() {
           <SectionOpener command="cat about.md" title="About" />
           <div className="mt-4 flex max-w-2xl flex-col gap-4 text-[14px] leading-[1.8] text-text-primary">
             <p>
-              I lead a 16-person science and analytics org at Amazon,
-              supporting the Books business across the US and India. Two
-              charters: growth science for KDP and Kindle Unlimited, and risk
-              science covering fraud, abuse, and policy.
+              I&apos;m a Data Science Manager at Amazon, leading a 16-person
+              science and analytics organization across the US and India that
+              supports the Amazon Books business on two verticals. The first
+              is Product and Customer Growth Science, where my team owns
+              strategy and recommendations for the product organization
+              through science-based solutions, spanning customer growth,
+              platform growth, and new launches. Our scope runs end to end:
+              owning the data infrastructure, building the metrics and
+              dashboards, and conducting science deep dives and ML models that
+              answer difficult business questions and influence product
+              strategy. The second is Risk Science, where we own the Books
+              risk and fraud domain: building risk models, supporting applied
+              science research and new model launches, running deep dives
+              that inform proactive enforcement, and delivering data-backed
+              recommendations for policy.
             </p>
             <p>
-              I earned the manager seat by doing the work first. Pipelines at
-              Capgemini. Healthcare data at Perficient. Enterprise migrations
-              at IBM. Then six years at Amazon, senior IC to manager, building
-              infrastructure, designing metrics, running deep dives, shipping
-              models.
+              I came to this role after a decade of doing the work hands-on:
+              data engineering at Capgemini, Perficient, and IBM, then
+              four-plus years at Amazon as a senior IC, building the same
+              infrastructure, metrics, and models my team owns today, before
+              stepping into management in 2024.
             </p>
             <p>
-              Today my focus is making the org AI-native: agentic workflows,
-              AI advisors, natural-language analytics.
+              My current focus is making the organization AI-native: agentic
+              workflows that automate fraud checks, AI advisors embedded in
+              business reviews, and natural-language analytics that make data
+              self-service.
             </p>
           </div>
-          <Link
-            href="/about"
-            className="mt-5 inline-block font-mono text-[11px] text-accent-green hover:text-text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-green"
-          >
-            more about me →
-          </Link>
         </section>
 
         <section className="mt-12">
@@ -112,12 +123,20 @@ export default function Home() {
                 RESUME ↓
               </Button>
               <Button
-                variant="tertiary"
-                href="https://www.linkedin.com/in/sriram-rajagopalan/"
+                variant="secondary"
+                href="https://github.com/Sriram1905"
                 external
-                ariaLabel="Sriram Rajagopalan on LinkedIn"
+                ariaLabel="Sriram Rajagopalan on GitHub"
               >
-                LINKEDIN
+                GITHUB
+              </Button>
+              <Button
+                variant="tertiary"
+                href="mailto:sriraraj19@gmail.com"
+                external
+                ariaLabel="Email Sriram Rajagopalan"
+              >
+                EMAIL ↗
               </Button>
             </div>
           </div>
