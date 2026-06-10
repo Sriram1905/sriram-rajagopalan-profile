@@ -8,6 +8,19 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        "bg-primary": "#0A0A0B",
+        "bg-secondary": "#111114",
+        "border-default": "#1F1F23",
+        "border-emphasis": "#2F2F33",
+        "text-primary": "#F5F5F4",
+        "text-muted": "#9CA3AF",
+        "text-dim": "#6B7280",
+        "accent-green": "#4A9D7E",
+        "accent-green-border": "#1F3D2F",
+        "accent-orange": "#D9531E",
+        cream: "#F5F1EA",
+      },
       fontFamily: {
         serif: ["var(--font-serif)"],
         mono: ["var(--font-mono)"],

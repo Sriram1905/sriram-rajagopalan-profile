@@ -21,7 +21,18 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://sriram1905.github.io/sriram-rajagopalan-profile"),
   title: "Sriram Rajagopalan",
+  description: "Data science manager. Building AI-native teams.",
+  openGraph: {
+    title: "Sriram Rajagopalan",
+    description: "Data science manager. Building AI-native teams.",
+    type: "website",
+    images: "/og-card.png",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
 };
 
 export default function RootLayout({
@@ -32,9 +43,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${fraunces.variable} ${jetbrainsMono.variable} ${inter.variable}`}
+        className={`${fraunces.variable} ${jetbrainsMono.variable} ${inter.variable} bg-bg-primary font-sans text-text-primary`}
       >
-        {children}
+        <div className="mx-auto flex min-h-screen max-w-5xl flex-col px-6">
+          <div className="flex-1">{children}</div>
+          <footer className="flex items-center justify-between border-t border-border-default p-4 font-mono text-[10px] text-text-dim">
+            <span>© 2026 Sriram Rajagopalan</span>
+            <span>built with Next.js · deployed to GitHub Pages</span>
+          </footer>
+        </div>
       </body>
     </html>
   );
