@@ -7,7 +7,7 @@ export default function Home() {
       <SiteHeader pageName="PORTFOLIO" meta="v1.0 · 2026" />
       <main className="py-16">
         <p className="font-mono text-[11px] text-accent-green">{"> whoami"}</p>
-        <h1 className="mt-4 font-serif text-[44px] font-medium">
+        <h1 className="mt-4 font-serif text-[32px] font-medium sm:text-[44px]">
           Sriram Rajagopalan
         </h1>
         <p className="mt-2 font-mono text-accent-green">

@@ -16,11 +16,11 @@ export default function SiteHeader({
   action?: React.ReactNode;
 }) {
   return (
-    <header className="sticky top-0 z-40 flex items-center justify-between border-b border-border-default bg-bg-secondary px-4 py-3">
-      <span className="font-mono text-[11px] tracking-[0.1em] text-accent-green">
+    <header className="sticky top-0 z-40 flex items-center justify-between gap-4 overflow-x-auto border-b border-border-default bg-bg-secondary px-4 py-3">
+      <span className="whitespace-nowrap font-mono text-[11px] tracking-[0.1em] text-accent-green">
         SRIRAM RAJAGOPALAN // {pageName}
       </span>
-      <div className="flex items-center gap-6">
+      <div className="flex shrink-0 items-center gap-6">
         <nav aria-label="Main" className="flex items-center gap-5">
           {NAV_LINKS.map(({ label, href }) => (
             <Link

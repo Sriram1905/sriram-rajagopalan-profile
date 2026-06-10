@@ -53,6 +53,8 @@ function WorkSection({
 
 export const metadata = {
   title: "Work — Sriram Rajagopalan",
+  description:
+    "Selected leadership and hands-on data science work by Sriram Rajagopalan.",
 };
 
 export default function WorkPage() {

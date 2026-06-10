@@ -16,19 +16,31 @@ export default function Button({
   href,
   onClick,
   children,
+  external = false,
+  ariaLabel,
 }: {
   variant?: Variant;
   href?: string;
   onClick?: () => void;
   children: React.ReactNode;
+  external?: boolean;
+  ariaLabel?: string;
 }) {
   const className = `${BASE_CLASSES} ${VARIANT_CLASSES[variant]}`;
+
+  if (href && external) {
+    return (
+      <a href={href} className={className} rel="noopener" aria-label={ariaLabel}>
+        {children}
+      </a>
+    );
+  }
 
   // Static files (e.g. /resume.pdf) bypass client-side routing; callers
   // must pass the BASE_PATH-prefixed href since next/link isn't used.
   if (href && /\.[a-z0-9]+$/i.test(href)) {
     return (
-      <a href={href} className={className}>
+      <a href={href} className={className} aria-label={ariaLabel}>
         {children}
       </a>
     );

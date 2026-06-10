@@ -47,7 +47,7 @@ export default function RootLayout({
       >
         <div className="mx-auto flex min-h-screen max-w-5xl flex-col px-6">
           <div className="flex-1">{children}</div>
-          <footer className="flex items-center justify-between border-t border-border-default p-4 font-mono text-[10px] text-text-dim">
+          <footer className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 border-t border-border-default p-4 font-mono text-[10px] text-text-dim">
             <span>© 2026 Sriram Rajagopalan</span>
             <span>built with Next.js · deployed to GitHub Pages</span>
           </footer>

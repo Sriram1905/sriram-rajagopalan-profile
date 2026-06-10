@@ -14,6 +14,8 @@ function SectionHeader({ label }: { label: string }) {
 
 export const metadata = {
   title: "Resume — Sriram Rajagopalan",
+  description:
+    "Experience, education, and skills of Sriram Rajagopalan, data science manager.",
 };
 
 export default function ResumePage() {
