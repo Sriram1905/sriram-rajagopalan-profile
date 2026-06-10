@@ -24,6 +24,16 @@ export default function Button({
 }) {
   const className = `${BASE_CLASSES} ${VARIANT_CLASSES[variant]}`;
 
+  // Static files (e.g. /resume.pdf) bypass client-side routing; callers
+  // must pass the BASE_PATH-prefixed href since next/link isn't used.
+  if (href && /\.[a-z0-9]+$/i.test(href)) {
+    return (
+      <a href={href} className={className}>
+        {children}
+      </a>
+    );
+  }
+
   if (href) {
     return (
       <Link href={href} className={className}>

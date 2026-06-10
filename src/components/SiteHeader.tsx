@@ -9,9 +9,11 @@ const NAV_LINKS = [
 export default function SiteHeader({
   pageName,
   meta,
+  action,
 }: {
   pageName: string;
   meta?: string;
+  action?: React.ReactNode;
 }) {
   return (
     <header className="sticky top-0 z-40 flex items-center justify-between border-b border-border-default bg-bg-secondary px-4 py-3">
@@ -33,6 +35,7 @@ export default function SiteHeader({
         {meta && (
           <span className="font-mono text-[11px] text-text-dim">{meta}</span>
         )}
+        {action}
       </div>
     </header>
   );
