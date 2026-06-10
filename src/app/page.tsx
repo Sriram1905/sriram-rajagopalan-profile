@@ -14,8 +14,8 @@ export default function Home() {
           data_science.manager()
         </p>
         <p className="mt-4 max-w-xl text-text-muted">
-          Building AI-native data science teams. Shipping machine learning into
-          production.
+          12 years across data engineering, analytics, and science. Now leading
+          teams that do all three.
         </p>
         <div className="mt-8 flex items-center gap-3">
           <Button variant="secondary" href="/work">

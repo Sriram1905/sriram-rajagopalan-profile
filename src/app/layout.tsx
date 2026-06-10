@@ -23,10 +23,12 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://sriram1905.github.io/sriram-rajagopalan-profile"),
   title: "Sriram Rajagopalan",
-  description: "Data science manager. Building AI-native teams.",
+  description:
+    "Data science manager at Amazon. 12 years across data engineering, analytics, and science.",
   openGraph: {
     title: "Sriram Rajagopalan",
-    description: "Data science manager. Building AI-native teams.",
+    description:
+      "Data science manager at Amazon. 12 years across data engineering, analytics, and science.",
     type: "website",
     images: "/og-card.png",
   },

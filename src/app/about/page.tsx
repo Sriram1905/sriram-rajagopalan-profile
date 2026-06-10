@@ -40,21 +40,33 @@ export default function AboutPage() {
             )}
             <div className="flex flex-col gap-4 text-[13px] leading-[1.7] text-text-primary">
               <p>
-                [ Bio paragraph one: who Sriram is, current role and focus. ]
+                I&apos;m a data science manager at Amazon, where I lead a
+                16-person science and analytics organization supporting the
+                Amazon Books business across the US and India. My team owns two
+                charters: product and customer growth science for programs like
+                KDP and Kindle Unlimited, and risk science covering fraud,
+                abuse, and policy.
               </p>
               <p>
-                [ Bio paragraph two: career arc, what kind of teams and
-                problems. ]
+                I got here by doing the work hands-on first. Twelve years
+                across data engineering, business intelligence, and science:
+                building pipelines and architecture at Capgemini, Perficient,
+                and IBM, then six-plus years at Amazon going from senior IC to
+                manager. I&apos;ve built the infrastructure, designed the
+                metrics, run the deep dives, and shipped the models.
               </p>
-              <p>[ Bio paragraph three: outside of work, location, etc. ]</p>
+              <p>
+                Right now I&apos;m focused on making my organization AI-native:
+                agentic workflows for fraud checks, AI advisors for business
+                reviews, and natural-language analytics that make data
+                self-service.
+              </p>
             </div>
           </div>
-          {/* TODO: replace the "#" hrefs with the real LinkedIn URL,
-              GitHub URL, and mailto: address. */}
           <div className="mt-8 flex items-center gap-3">
             <Button
               variant="secondary"
-              href="#"
+              href="https://www.linkedin.com/in/sriram-rajagopalan/"
               external
               ariaLabel="Sriram Rajagopalan on LinkedIn"
             >
@@ -62,7 +74,7 @@ export default function AboutPage() {
             </Button>
             <Button
               variant="secondary"
-              href="#"
+              href="https://github.com/Sriram1905"
               external
               ariaLabel="Sriram Rajagopalan on GitHub"
             >
@@ -70,7 +82,7 @@ export default function AboutPage() {
             </Button>
             <Button
               variant="primary"
-              href="#"
+              href="mailto:sriraraj19@gmail.com"
               external
               ariaLabel="Email Sriram Rajagopalan"
             >
