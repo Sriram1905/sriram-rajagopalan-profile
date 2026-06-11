@@ -37,7 +37,7 @@ export default function ResumePage() {
               {resume.experience.map((entry, i) => (
                 <article key={i}>
                   <div className="flex items-baseline justify-between">
-                    <h3 className="font-serif text-[16px]">{entry.role}</h3>
+                    <h3 className="font-heading text-[15px]">{entry.role}</h3>
                     <span className="font-mono text-[11px] text-text-dim">
                       {entry.start} – {entry.end}
                     </span>
@@ -69,7 +69,7 @@ export default function ResumePage() {
               {resume.education.map((entry, i) => (
                 <article key={i}>
                   <div className="flex items-baseline justify-between">
-                    <h3 className="font-serif text-[16px]">{entry.degree}</h3>
+                    <h3 className="font-heading text-[15px]">{entry.degree}</h3>
                     <span className="font-mono text-[11px] text-text-dim">
                       {entry.start} – {entry.end}
                     </span>

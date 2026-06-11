@@ -16,6 +16,17 @@ Public career portal for Sriram Rajagopalan, data science manager.
 - No features beyond what each prompt specifies.
 - Verify `next build` passes before finishing any task.
 
+## Work page structure
+
+The Work page is a charter view, not a card grid. Three sections, each a mono
+accent-green header (10px, 0.1em tracking, bottom border): GROWTH SCIENCE and
+RISK SCIENCE (each with a charter statement, then terminal-ledger workstream
+rows), then EARLIER HANDS-ON WORK (compact, rows only). Rows are not links —
+no case-study pages this phase. Each row: heading-font title (15px) + mono dim
+year, mono accent-green "problem → built → outcome" line (11px), one-line
+muted detail (12px). Data lives in src/lib/projects.ts (Charter/Workstream
+schema).
+
 ## Phase plan
 
 - Phase 1: static site
@@ -36,9 +47,16 @@ Colors
 
 Fonts (Google Fonts via next/font)
 
-- Serif: Fraunces (headings, name) — weights 400, 500
+- Heading: Space Grotesk (headings, name) — weights 400, 500, CSS var --font-heading, Tailwind class font-heading
 - Mono: JetBrains Mono (labels, accents, command prompts) — weights 400, 500
 - Sans: Inter (body) — weights 400, 500
+
+Heading scale
+
+- Hero name: 36px (28px below the sm breakpoint), weight 500
+- Page titles (PageShell, not-found): 24px
+- Home section titles (About, The road here, Where I am now): 18px
+- Project/role title lines (work rows, resume entries): 15px
 
 Voice and patterns
 

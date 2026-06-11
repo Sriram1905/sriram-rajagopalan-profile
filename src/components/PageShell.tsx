@@ -13,7 +13,7 @@ export default function PageShell({
         {"> "}
         {commandLabel}
       </p>
-      <h1 className="mt-3 font-serif text-[32px] font-medium">{title}</h1>
+      <h1 className="mt-3 font-heading text-[24px] font-medium">{title}</h1>
       {children}
     </section>
   );

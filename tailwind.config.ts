@@ -22,7 +22,7 @@ const config: Config = {
         cream: "#F5F1EA",
       },
       fontFamily: {
-        serif: ["var(--font-serif)"],
+        heading: ["var(--font-heading)"],
         mono: ["var(--font-mono)"],
         sans: ["var(--font-sans)"],
       },

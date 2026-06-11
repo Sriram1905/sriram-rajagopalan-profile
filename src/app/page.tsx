@@ -9,7 +9,7 @@ const SOCIAL_ICON_CLASSES =
 function SectionOpener({
   command,
   title,
-  titleSize = "text-[22px]",
+  titleSize = "text-[18px]",
 }: {
   command: string;
   title: string;
@@ -21,7 +21,7 @@ function SectionOpener({
         {"> "}
         {command}
       </p>
-      <h2 className={`mt-2 font-serif font-medium ${titleSize}`}>{title}</h2>
+      <h2 className={`mt-2 font-heading font-medium ${titleSize}`}>{title}</h2>
     </>
   );
 }
@@ -32,7 +32,7 @@ export default function Home() {
       <SiteHeader pageName="PORTFOLIO" hideNav />
       <main className="py-16">
         <p className="font-mono text-[11px] text-accent-green">{"> whoami"}</p>
-        <h1 className="mt-4 font-serif text-[32px] font-medium sm:text-[44px]">
+        <h1 className="mt-4 font-heading text-[28px] font-medium sm:text-[36px]">
           Sriram Rajagopalan
         </h1>
         <p className="mt-2 font-mono text-accent-green">
@@ -78,7 +78,7 @@ export default function Home() {
 
         <section className="mt-12">
           <SectionOpener command="cat about.md" title="About" />
-          <div className="mt-4 flex max-w-2xl flex-col gap-4 text-[14px] leading-[1.8] text-text-primary">
+          <div className="mt-4 flex max-w-3xl flex-col gap-4 text-[14px] leading-[1.8] text-text-primary">
             <p>
               I&apos;m a Data Science Manager at Amazon, leading a 16-person
               science and analytics organization across the US and India that
@@ -120,11 +120,7 @@ export default function Home() {
         </section>
 
         <section className="mb-[64px] mt-[56px]">
-          <SectionOpener
-            command="pwd"
-            title="Data Science Manager, Amazon"
-            titleSize="text-[24px]"
-          />
+          <SectionOpener command="pwd" title="Data Science Manager, Amazon" />
           <div className="mt-5 rounded-lg border border-border-default bg-bg-secondary p-6">
             <p className="text-[14px] leading-[1.7] text-text-primary">
               Leading Product &amp; Customer Growth Science and Risk Science

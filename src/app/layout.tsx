@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter, JetBrains_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
-const fraunces = Fraunces({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   weight: ["400", "500"],
-  variable: "--font-serif",
+  variable: "--font-heading",
 });
 
 const jetbrainsMono = JetBrains_Mono({
@@ -45,7 +45,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${fraunces.variable} ${jetbrainsMono.variable} ${inter.variable} bg-bg-primary font-sans text-text-primary`}
+        className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} ${inter.variable} bg-bg-primary font-sans text-text-primary`}
       >
         <div className="mx-auto flex min-h-screen max-w-5xl flex-col px-6">
           <div className="flex-1">{children}</div>

@@ -30,13 +30,13 @@ async function renderPng(element, width, height, fonts) {
   }).render().asPng();
 }
 
-const [fraunces, jetbrainsMono] = await Promise.all([
-  loadGoogleFont("Fraunces", 500),
+const [spaceGrotesk, jetbrainsMono] = await Promise.all([
+  loadGoogleFont("Space Grotesk", 500),
   loadGoogleFont("JetBrains Mono", 500),
 ]);
 
 const fonts = [
-  { name: "Fraunces", data: fraunces, weight: 500, style: "normal" },
+  { name: "Space Grotesk", data: spaceGrotesk, weight: 500, style: "normal" },
   { name: "JetBrains Mono", data: jetbrainsMono, weight: 500, style: "normal" },
 ];
 
@@ -57,7 +57,7 @@ const ogCard = {
         type: "div",
         props: {
           style: {
-            fontFamily: "Fraunces",
+            fontFamily: "Space Grotesk",
             fontSize: 76,
             color: COLORS.cream,
           },

@@ -27,19 +27,19 @@ async function googleFontTtfUrl(family: string, weight: number) {
 
 // Font families used in the document; reassigned to built-ins on fetch failure
 // so a fonts.googleapis.com outage can't break the deploy.
-let SERIF = "Fraunces";
+let HEADING = "Space Grotesk";
 let MONO = "JetBrains Mono";
 let SANS = "Inter";
 
 async function registerFonts() {
   try {
-    const [fraunces, mono, monoMedium, sans] = await Promise.all([
-      googleFontTtfUrl("Fraunces", 500),
+    const [heading, mono, monoMedium, sans] = await Promise.all([
+      googleFontTtfUrl("Space Grotesk", 500),
       googleFontTtfUrl("JetBrains Mono", 400),
       googleFontTtfUrl("JetBrains Mono", 500),
       googleFontTtfUrl("Inter", 400),
     ]);
-    Font.register({ family: SERIF, fonts: [{ src: fraunces, fontWeight: 500 }] });
+    Font.register({ family: HEADING, fonts: [{ src: heading, fontWeight: 500 }] });
     Font.register({
       family: MONO,
       fonts: [
@@ -50,7 +50,7 @@ async function registerFonts() {
     Font.register({ family: SANS, fonts: [{ src: sans, fontWeight: 400 }] });
   } catch (error) {
     console.warn("Font download failed, falling back to built-ins:", error);
-    SERIF = "Times-Roman";
+    HEADING = "Helvetica";
     MONO = "Courier";
     SANS = "Helvetica";
   }
@@ -74,7 +74,7 @@ function buildStyles() {
       paddingVertical: 18,
       paddingHorizontal: 34,
     },
-    name: { fontFamily: SERIF, fontWeight: 500, fontSize: 18 },
+    name: { fontFamily: HEADING, fontWeight: 500, fontSize: 18 },
     tagline: { fontFamily: MONO, fontSize: 8, color: COLORS.green, marginTop: 2 },
     contact: { fontFamily: MONO, fontSize: 7.5, color: COLORS.dim, marginTop: 2 },
     sectionLabel: {
@@ -90,7 +90,7 @@ function buildStyles() {
       marginBottom: 4,
     },
     entryRow: { flexDirection: "row", justifyContent: "space-between" },
-    role: { fontFamily: SERIF, fontWeight: 500, fontSize: 10 },
+    role: { fontFamily: HEADING, fontWeight: 500, fontSize: 10 },
     dates: { fontFamily: MONO, fontSize: 7.5, color: COLORS.dim },
     company: { fontFamily: MONO, fontSize: 8, color: COLORS.muted, marginTop: 1 },
     scope: { fontSize: 8.5, color: COLORS.muted, marginTop: 2, lineHeight: 1.2 },

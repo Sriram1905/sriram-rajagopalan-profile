@@ -1,83 +1,77 @@
-export type Project = {
-  slug: string;
+export type Workstream = {
   title: string;
   year: string;
-  role: "leadership" | "ic";
-  involvement: string;
-  tags: string[];
+  // "problem → built → outcome" one-liner, rendered mono accent-green
   summary: string;
-  body: string;
+  detail: string;
 };
 
-export const projects: Project[] = [
+export type Charter = {
+  label: string;
+  statement?: string;
+  workstreams: Workstream[];
+};
+
+export const charters: Charter[] = [
   {
-    slug: "kdp-select-program-health",
-    title: "KDP Select Program Health Overview",
-    year: "[YEAR]",
-    role: "leadership",
-    involvement: "[PLACEHOLDER]",
-    tags: ["[PLACEHOLDER]"],
-    summary: "[PLACEHOLDER]",
-    body: "[PLACEHOLDER]",
+    label: "GROWTH SCIENCE",
+    statement:
+      "Product and Customer Growth Science for Amazon Books. Strategy and recommendations for the product organization through science-based solutions: customer growth, platform growth, and new launches. End-to-end ownership from data infrastructure to metrics, deep dives, and ML models.",
+    workstreams: [
+      {
+        title: "KDP Select Program Health Overview",
+        year: "[YEAR]",
+        summary: "[PLACEHOLDER: problem → built → outcome]",
+        detail: "[PLACEHOLDER: one-line detail]",
+      },
+      {
+        title: "ALC vs Subscription Cannibalization Trends",
+        year: "[YEAR]",
+        summary: "[PLACEHOLDER: problem → built → outcome]",
+        detail: "[PLACEHOLDER: one-line detail]",
+      },
+      {
+        title: "Comics Business Health and Customer Segmentation",
+        year: "[YEAR]",
+        summary: "[PLACEHOLDER: problem → built → outcome]",
+        detail: "[PLACEHOLDER: one-line detail]",
+      },
+    ],
   },
   {
-    slug: "publisher-reader-collusion-model",
-    title: "Publisher Reader Collusion Model",
-    year: "[YEAR]",
-    role: "leadership",
-    involvement: "[PLACEHOLDER]",
-    tags: ["[PLACEHOLDER]"],
-    summary: "[PLACEHOLDER]",
-    body: "[PLACEHOLDER]",
+    label: "RISK SCIENCE",
+    statement:
+      "Risk Science for the Books risk and fraud domain. Risk models in production, applied science support for research and new model launches, deep dives that inform proactive enforcement, and data-backed recommendations for policy.",
+    workstreams: [
+      {
+        title: "Publisher Reader Collusion Model",
+        year: "[YEAR]",
+        summary: "[PLACEHOLDER: problem → built → outcome]",
+        detail: "[PLACEHOLDER: one-line detail]",
+      },
+      {
+        title: "Reader Experience Index Model",
+        year: "[YEAR]",
+        summary: "[PLACEHOLDER: problem → built → outcome]",
+        detail: "[PLACEHOLDER: one-line detail]",
+      },
+    ],
   },
   {
-    slug: "reader-experience-index-model",
-    title: "Reader Experience Index Model",
-    year: "[YEAR]",
-    role: "leadership",
-    involvement: "[PLACEHOLDER]",
-    tags: ["[PLACEHOLDER]"],
-    summary: "[PLACEHOLDER]",
-    body: "[PLACEHOLDER]",
-  },
-  {
-    slug: "alc-vs-subscription-cannibalization",
-    title: "ALC vs Subscription Cannibalization Trends",
-    year: "[YEAR]",
-    role: "leadership",
-    involvement: "[PLACEHOLDER]",
-    tags: ["[PLACEHOLDER]"],
-    summary: "[PLACEHOLDER]",
-    body: "[PLACEHOLDER]",
-  },
-  {
-    slug: "comics-business-health-segmentation",
-    title: "Comics Business Health and Customer Segmentation",
-    year: "[YEAR]",
-    role: "leadership",
-    involvement: "[PLACEHOLDER]",
-    tags: ["[PLACEHOLDER]"],
-    summary: "[PLACEHOLDER]",
-    body: "[PLACEHOLDER]",
-  },
-  {
-    slug: "ic-project-1",
-    title: "[ IC Project One ]",
-    year: "[ Year ]",
-    role: "ic",
-    involvement: "[ IC delivery ]",
-    tags: ["[ Tag ]", "[ Tag ]"],
-    summary: "[ One- to two-sentence summary of the project and its impact. ]",
-    body: "[ Case study body: context and problem. ]\n\n[ Case study body: approach. ]\n\n[ Case study body: outcome. ]",
-  },
-  {
-    slug: "ic-project-2",
-    title: "[ IC Project Two ]",
-    year: "[ Year ]",
-    role: "ic",
-    involvement: "[ IC delivery ]",
-    tags: ["[ Tag ]", "[ Tag ]"],
-    summary: "[ One- to two-sentence summary of the project and its impact. ]",
-    body: "[ Case study body: context and problem. ]\n\n[ Case study body: approach. ]\n\n[ Case study body: outcome. ]",
+    label: "EARLIER HANDS-ON WORK",
+    workstreams: [
+      {
+        title: "[ IC-era project, to be chosen ]",
+        year: "[YEAR]",
+        summary: "[PLACEHOLDER: problem → built → outcome]",
+        detail: "[PLACEHOLDER: one-line detail]",
+      },
+      {
+        title: "[ IC-era project, to be chosen ]",
+        year: "[YEAR]",
+        summary: "[PLACEHOLDER: problem → built → outcome]",
+        detail: "[PLACEHOLDER: one-line detail]",
+      },
+    ],
   },
 ];
