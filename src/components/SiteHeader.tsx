@@ -28,7 +28,7 @@ export default function SiteHeader({
               <Link
                 key={href}
                 href={href}
-                className="font-mono text-[11px] text-text-muted hover:text-text-primary focus-visible:text-text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-green"
+                className="link-underline font-mono text-[11px] text-text-muted hover:text-text-primary focus-visible:text-text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-green"
               >
                 {label}
               </Link>

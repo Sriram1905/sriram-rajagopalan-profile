@@ -1,6 +1,7 @@
 import Button from "@/components/Button";
 import PageShell from "@/components/PageShell";
 import SiteHeader from "@/components/SiteHeader";
+import Reveal, { RevealItem } from "@/components/motion/Reveal";
 import { resume } from "@/lib/resume";
 import { BASE_PATH } from "@/lib/site";
 
@@ -32,10 +33,12 @@ export default function ResumePage() {
       <main>
         <PageShell commandLabel="cat resume.md" title="Resume">
           <section className="mt-10">
+            <Reveal>
             <SectionHeader label="EXPERIENCE" />
             <div className="mt-5 flex flex-col gap-7">
               {resume.experience.map((entry, i) => (
-                <article key={i}>
+                <RevealItem key={i}>
+                <article>
                   <div className="flex items-baseline justify-between">
                     <h3 className="font-heading text-[15px]">{entry.role}</h3>
                     <span className="font-mono text-[11px] text-text-dim">
@@ -59,15 +62,19 @@ export default function ResumePage() {
                     ))}
                   </ul>
                 </article>
+                </RevealItem>
               ))}
             </div>
+            </Reveal>
           </section>
 
           <section className="mt-10">
+            <Reveal>
             <SectionHeader label="EDUCATION" />
             <div className="mt-5 flex flex-col gap-5">
               {resume.education.map((entry, i) => (
-                <article key={i}>
+                <RevealItem key={i}>
+                <article>
                   <div className="flex items-baseline justify-between">
                     <h3 className="font-heading text-[15px]">{entry.degree}</h3>
                     <span className="font-mono text-[11px] text-text-dim">
@@ -78,15 +85,19 @@ export default function ResumePage() {
                     {entry.school}
                   </p>
                 </article>
+                </RevealItem>
               ))}
             </div>
+            </Reveal>
           </section>
 
           <section className="mt-10">
+            <Reveal>
             <SectionHeader label="SKILLS" />
             <div className="mt-5 flex flex-col gap-5">
               {resume.skills.map((group, i) => (
-                <div key={i}>
+                <RevealItem key={i}>
+                <div>
                   <p className="font-mono text-[11px] text-text-muted">
                     {group.category}
                   </p>
@@ -101,8 +112,10 @@ export default function ResumePage() {
                     ))}
                   </div>
                 </div>
+                </RevealItem>
               ))}
             </div>
+            </Reveal>
           </section>
         </PageShell>
       </main>

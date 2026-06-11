@@ -27,6 +27,29 @@ year, mono accent-green "problem → built → outcome" line (11px), one-line
 muted detail (12px). Data lives in src/lib/projects.ts (Charter/Workstream
 schema).
 
+## Motion system
+
+framer-motion powers all animation; every motion element is a client
+component ("use client") so the static export keeps working. Rules:
+
+- Section entrances: fade + 16px rise, 0.5s ease-out, viewport once, children
+  staggered 60ms. Use Reveal / RevealItem (src/components/motion/Reveal.tsx).
+- Hero: "> whoami" types at 40ms/char, rest fades in after; total intro under
+  1.5s. Blinking accent-green block cursor after the tagline (CSS).
+- Road: dashed path draws in over 1.6s via an SVG mask (preserves the dash
+  pattern); stop badges light up border-emphasis → accent-green staggered to
+  the path's arrival; the current stop's orange ring pulses twice then settles.
+- Work rows: disclosure pattern (button + aria-expanded), 200ms height
+  animation, rotating chevron; hover slides in a 2px accent-green left border
+  and shifts bg to bg-secondary/50.
+- Buttons: hover lifts 1px + brightness bump, active presses down.
+- Links: accent-green underline slides in on hover (.link-underline).
+- Texture: faint fixed dot grid on body (24px, rgba(31,31,35,0.4)); soft
+  accent-green glow (7% opacity, large blur) behind the hero only.
+- Footer: "last deployed {build date}" + slow-pulsing 6px green dot.
+- prefers-reduced-motion disables everything: framer via useReducedMotion in
+  each motion component, CSS animations via media query.
+
 ## Phase plan
 
 - Phase 1: static site

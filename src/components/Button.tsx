@@ -9,7 +9,7 @@ const VARIANT_CLASSES: Record<Variant, string> = {
 };
 
 const BASE_CLASSES =
-  "inline-block font-mono text-[11px] tracking-[0.05em] px-[14px] py-[12px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-green";
+  "inline-block font-mono text-[11px] tracking-[0.05em] px-[14px] py-[12px] transition duration-150 hover:-translate-y-px hover:brightness-110 active:translate-y-0 active:brightness-95 motion-reduce:transition-none motion-reduce:hover:translate-y-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-green";
 
 export default function Button({
   variant = "primary",

@@ -1,3 +1,73 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Faint dot grid over bg-primary, fixed so it doesn't scroll with content */
+body {
+  background-image: radial-gradient(rgba(31, 31, 35, 0.4) 1px, transparent 1px);
+  background-size: 24px 24px;
+  background-attachment: fixed;
+}
+
+@layer components {
+  /* accent-green underline that slides in on hover */
+  .link-underline {
+    position: relative;
+  }
+  .link-underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 1px;
+    width: 100%;
+    background: #4a9d7e;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.2s ease-out;
+  }
+  .link-underline:hover::after,
+  .link-underline:focus-visible::after {
+    transform: scaleX(1);
+  }
+
+  /* blinking block cursor after the hero tagline */
+  .cursor-blink {
+    animation: cursor-blink 1s steps(1) infinite;
+  }
+
+  /* slow pulse for the footer "maintained" dot */
+  .pulse-dot {
+    animation: pulse-dot 2.4s ease-in-out infinite;
+  }
+}
+
+@keyframes cursor-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor-blink,
+  .pulse-dot {
+    animation: none;
+  }
+  .link-underline::after {
+    transition: none;
+  }
+}

@@ -1,37 +1,31 @@
 import PageShell from "@/components/PageShell";
 import SiteHeader from "@/components/SiteHeader";
+import WorkstreamRow from "@/components/WorkstreamRow";
+import Reveal, { RevealItem } from "@/components/motion/Reveal";
 import { charters, type Charter } from "@/lib/projects";
 
 function CharterSection({ charter }: { charter: Charter }) {
   return (
     <section className="mt-10">
-      <h2 className="border-b border-border-default pb-[6px] font-mono text-[10px] tracking-[0.1em] text-accent-green">
-        {charter.label}
-      </h2>
-      {charter.statement && (
-        <p className="mt-4 text-[14px] leading-[1.7] text-text-primary">
-          {charter.statement}
-        </p>
-      )}
-      <div className="mt-2">
-        {charter.workstreams.map((ws) => (
-          <article
-            key={ws.title}
-            className="border-b border-border-default py-[14px]"
-          >
-            <div className="flex items-baseline justify-between gap-4">
-              <h3 className="font-heading text-[15px]">{ws.title}</h3>
-              <span className="shrink-0 font-mono text-[11px] text-text-dim">
-                {ws.year}
-              </span>
-            </div>
-            <p className="mt-1 font-mono text-[11px] text-accent-green">
-              {ws.summary}
+      <Reveal>
+        <h2 className="border-b border-border-default pb-[6px] font-mono text-[10px] tracking-[0.1em] text-accent-green">
+          {charter.label}
+        </h2>
+        {charter.statement && (
+          <RevealItem>
+            <p className="mt-4 text-[14px] leading-[1.7] text-text-primary">
+              {charter.statement}
             </p>
-            <p className="mt-1 text-[12px] text-text-muted">{ws.detail}</p>
-          </article>
-        ))}
-      </div>
+          </RevealItem>
+        )}
+        <div className="mt-2">
+          {charter.workstreams.map((ws) => (
+            <RevealItem key={ws.title}>
+              <WorkstreamRow ws={ws} />
+            </RevealItem>
+          ))}
+        </div>
+      </Reveal>
     </section>
   );
 }

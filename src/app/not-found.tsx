@@ -11,7 +11,7 @@ export default function NotFound() {
       <h1 className="mt-4 font-heading text-[24px] font-medium">Not found</h1>
       <Link
         href="/"
-        className="mt-6 inline-block font-mono text-[11px] text-accent-green hover:text-text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-green"
+        className="link-underline mt-6 inline-block font-mono text-[11px] text-accent-green hover:text-text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-green"
       >
         ← back home
       </Link>
