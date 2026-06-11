@@ -144,7 +144,7 @@ async function main() {
             h(Text, { style: s.dates }, `${entry.start} – ${entry.end}`),
           ),
           h(Text, { style: s.company }, entry.company),
-          h(Text, { style: s.scope }, entry.scope),
+          ...(entry.scope ? [h(Text, { style: s.scope }, entry.scope)] : []),
           h(
             View,
             { style: s.bullets },

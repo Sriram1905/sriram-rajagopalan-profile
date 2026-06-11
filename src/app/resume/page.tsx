@@ -48,9 +48,11 @@ export default function ResumePage() {
                   <p className="mt-1 font-mono text-[11px] text-text-muted">
                     {entry.company}
                   </p>
-                  <p className="mt-2 text-[12px] leading-[1.6] text-text-muted">
-                    {entry.scope}
-                  </p>
+                  {entry.scope && (
+                    <p className="mt-2 text-[12px] leading-[1.6] text-text-muted">
+                      {entry.scope}
+                    </p>
+                  )}
                   <ul className="mt-2 flex flex-col gap-1 border-l border-accent-green-border pl-[12px]">
                     {entry.bullets.map((bullet, j) => (
                       <li
