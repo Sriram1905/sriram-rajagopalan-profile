@@ -19,7 +19,14 @@ export default function SiteHeader({
   return (
     <header className="sticky top-0 z-40 flex items-center justify-between gap-4 overflow-x-auto border-b border-border-default bg-bg-secondary px-4 py-3">
       <span className="whitespace-nowrap font-mono text-[11px] tracking-[0.1em] text-accent-green">
-        SRIRAM RAJAGOPALAN // {pageName}
+        <Link
+          href="/"
+          aria-label="Back to home"
+          className="link-underline transition-colors hover:text-text-primary focus-visible:text-text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-green"
+        >
+          SRIRAM RAJAGOPALAN
+        </Link>
+        {` // ${pageName}`}
       </span>
       {!hideNav && (
         <div className="flex shrink-0 items-center gap-6">
