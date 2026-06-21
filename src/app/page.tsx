@@ -39,6 +39,8 @@ export default function Home() {
           aria-hidden="true"
           className="pointer-events-none absolute -left-12 -top-20 -z-10 h-[420px] w-[420px] rounded-full bg-accent-green/[0.07] blur-[110px]"
         />
+        {/* single content column: every section shares this left and right edge */}
+        <div className="max-w-4xl">
         <HeroIntro>
           <h1 className="mt-4 font-heading text-[28px] font-medium sm:text-[36px]">
             Sriram Rajagopalan
@@ -55,8 +57,8 @@ export default function Home() {
             leading teams that do all three.
           </p>
           <div className="mt-8 flex items-center gap-3">
-            <Button variant="secondary" href="/work">
-              WORK
+            <Button variant="secondary" href="/projects">
+              PERSONAL
             </Button>
             <Button variant="primary" href="/resume">
               RESUME ↓
@@ -89,10 +91,10 @@ export default function Home() {
           </div>
         </HeroIntro>
 
-        <section className="mt-12">
+        <section className="mt-14">
           <Reveal>
             <SectionOpener command="cat about.md" title="About" />
-            <div className="mt-4 flex max-w-3xl flex-col gap-4 text-[14px] leading-[1.8] text-text-primary">
+            <div className="mt-4 flex flex-col gap-4 text-[15px] leading-[1.75] text-text-primary [text-align:justify] [hyphens:auto]">
               <RevealItem>
                 <p>
                   I&apos;m a Data Science Manager at Amazon, leading a
@@ -134,7 +136,7 @@ export default function Home() {
           </Reveal>
         </section>
 
-        <section className="mt-12">
+        <section className="mt-14">
           <Reveal>
             <SectionOpener
               command="git log --graph career/"
@@ -146,24 +148,24 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="mb-[64px] mt-[56px]">
+        <section className="mb-16 mt-14">
           <Reveal>
             <SectionOpener command="pwd" title="Data Science Manager, Amazon" />
             <RevealItem>
               <div className="mt-5 rounded-lg border border-border-default bg-bg-secondary p-6">
-                <p className="text-[14px] leading-[1.7] text-text-primary">
+                <p className="text-[15px] leading-[1.7] text-text-primary [text-align:justify] [hyphens:auto]">
                   Leading Product &amp; Customer Growth Science and Risk
                   Science for Amazon Books. A 16-person org across the US and
                   India: data scientists, BI engineers, and data engineers.
                 </p>
-                <p className="mt-3 text-[13px] leading-[1.7] text-text-muted">
+                <p className="mt-3 text-[13px] leading-[1.7] text-text-muted [text-align:justify] [hyphens:auto]">
                   Shipping production risk models. Influencing KDP launches.
                   Supporting the multi-million dollar Kindle Unlimited
                   business. Driving AI adoption across every role on the team.
                 </p>
                 <div className="mt-6 flex flex-wrap items-center gap-3">
-                  <Button variant="secondary" href="/work">
-                    WORK
+                  <Button variant="secondary" href="/projects">
+                    PERSONAL
                   </Button>
                   <Button variant="primary" href="/resume">
                     RESUME ↓
@@ -173,6 +175,7 @@ export default function Home() {
             </RevealItem>
           </Reveal>
         </section>
+        </div>
       </main>
     </>
   );

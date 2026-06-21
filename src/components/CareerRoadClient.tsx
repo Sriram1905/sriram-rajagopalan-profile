@@ -27,13 +27,15 @@ const MILESTONES: Milestone[] = [
 
 // Badge-center coordinates the road passes through. Desktop viewBox is
 // 1000x240 (left to right); mobile viewBox is 375x830 (top to bottom).
+// Endpoints are inset (95 … 905, not 0 … 1000) so the centered stop labels
+// stay inside the content column and aren't clipped at narrower widths.
 const DESKTOP_POINTS = [
-  { x: 50, y: 120 },
-  { x: 228, y: 90 },
-  { x: 406, y: 145 },
-  { x: 584, y: 90 },
-  { x: 762, y: 145 },
-  { x: 940, y: 110 },
+  { x: 95, y: 120 },
+  { x: 257, y: 90 },
+  { x: 419, y: 145 },
+  { x: 581, y: 90 },
+  { x: 743, y: 145 },
+  { x: 905, y: 110 },
 ];
 
 const MOBILE_POINTS = [
@@ -61,7 +63,7 @@ function desktopPath() {
     d += ` C ${mx} ${prev.y}, ${mx} ${p.y}, ${p.x} ${p.y}`;
     prev = p;
   }
-  d += ` C 985 ${prev.y}, 972 180, 968 260`;
+  d += ` C 950 ${prev.y}, 937 180, 933 260`;
   return d;
 }
 

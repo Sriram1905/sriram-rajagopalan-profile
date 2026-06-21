@@ -16,16 +16,35 @@ Public career portal for Sriram Rajagopalan, data science manager.
 - No features beyond what each prompt specifies.
 - Verify `next build` passes before finishing any task.
 
-## Work page structure
+## Personal work page (/projects)
 
-The Work page is a charter view, not a card grid. Three sections, each a mono
-accent-green header (10px, 0.1em tracking, bottom border): GROWTH SCIENCE and
-RISK SCIENCE (each with a charter statement, then terminal-ledger workstream
-rows), then EARLIER HANDS-ON WORK (compact, rows only). Rows are not links —
-no case-study pages this phase. Each row: heading-font title (15px) + mono dim
-year, mono accent-green "problem → built → outcome" line (11px), one-line
-muted detail (12px). Data lives in src/lib/projects.ts (Charter/Workstream
-schema).
+The portal does NOT show day-job project detail — that work is confidential.
+The `/projects` page ("Personal work", nav label "Personal") instead features
+public, non-confidential side builds. Data lives in src/lib/personal.ts
+(PersonalProject schema); each project is told as a short "journey" the reader
+clicks through (ProjectJourney.tsx, a client component):
+
+- Header: large index numeral + name in the project's own accent color, a
+  status line, and a live link (if public).
+- Stat row, then an interactive chapter explorer: a numbered chapter rail with
+  a progress line on the left (becomes a horizontal scroll strip on mobile),
+  and an animated browser-framed panel on the right (icon, headline, one-to-two
+  sentence body, feature tags). Tabs use role=tab / aria-selected.
+- Per-project accent is passed via inline style (not a Tailwind token) so each
+  project keeps its own brand color. Keep chapter bodies to a sentence or two —
+  never paragraphs.
+
+Current projects: Football Pesalaam (green #26A682, live) and Bumblebee (amber
+#E0A82E, private — handled warmly, no live link). The home hero and
+"where I am now" buttons link here as "PERSONAL".
+
+## Resume
+
+The downloadable PDF (public/resume.pdf) is Sriram's own designed Word/Pages
+document, exported to PDF verbatim — it is the exact format he wants people to
+download. It is NOT generated from code; it is committed as a static asset.
+src/lib/resume.ts powers only the on-page HTML resume and must be kept in sync
+with the PDF by hand when Sriram sends an updated document.
 
 ## Motion system
 
