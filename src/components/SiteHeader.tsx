@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BASE_PATH } from "@/lib/site";
 
 const NAV_LINKS = [
   { label: "Personal", href: "/projects" },
@@ -19,13 +20,16 @@ export default function SiteHeader({
   return (
     <header className="sticky top-0 z-40 flex items-center justify-between gap-4 overflow-x-auto border-b border-border-default bg-bg-secondary px-4 py-3">
       <span className="whitespace-nowrap font-mono text-[11px] tracking-[0.1em] text-accent-green">
-        <Link
-          href="/"
+        {/* Plain anchor with a trailing slash so GitHub Pages serves the home
+            index directly — a Next <Link href="/"> prefetches the wrong RSC
+            path (…profile.txt) and 404s, leaving the click dead for real users. */}
+        <a
+          href={`${BASE_PATH}/`}
           aria-label="Back to home"
           className="link-underline transition-colors hover:text-text-primary focus-visible:text-text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-green"
         >
           SRIRAM RAJAGOPALAN
-        </Link>
+        </a>
         {` // ${pageName}`}
       </span>
       {!hideNav && (
